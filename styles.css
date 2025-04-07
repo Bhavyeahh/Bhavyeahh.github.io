@@ -72,7 +72,6 @@ nav ul li a:hover {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #3498db;
 }
 
 .about-text h2 {
