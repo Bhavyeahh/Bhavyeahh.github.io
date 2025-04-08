@@ -6,6 +6,7 @@
     <title>Education | Bhavya's Personal Website</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,11 +18,17 @@
                     <li><a href="education.html" class="active">Education</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="text-analysis.html">Text Analysis</a></li>
                     <li><a href="assets/cv.pdf" class="cv-nav-button" download>Download CV</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
 
     <div class="page-content">
         <div class="container">
@@ -37,7 +44,7 @@
                                 <p>2024 - ongoing</p>
                             </div>
                             <div class="education-image">
-                                <img src="assets/iiit-hyderabad.jpg" alt="IIIT Hyderabad Campus">
+                                <img src="assets/iiit.png" alt="IIIT Hyderabad Campus">
                             </div>
                         </div>
                         <div class="education-item right slide-in slide-in-right">
@@ -47,7 +54,7 @@
                                 <p>2022 - 2024</p>
                             </div>
                             <div class="education-image">
-                                <img src="assets/allen-coaching.jpg" alt="Allen Coaching Institute">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/ALLEN_Career_Institute_logo.svg" alt="Allen Coaching Institute">
                             </div>
                         </div>
                     </div>
@@ -64,5 +71,6 @@
     
     <script src="js/tracking.js"></script>
     <script src="js/scroll-animations.js"></script>
+    <script src="js/theme-switcher.js"></script>
 </body>
 </html>

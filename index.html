@@ -6,6 +6,7 @@
     <title>Bhavya's Personal Website</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,6 +18,7 @@
                     <li><a href="education.html">Education</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="text-analysis.html">Text Analysis</a></li>
                     <li><a href="assets/cv.pdf" class="cv-nav-button" download>Download CV</a></li>
                 </ul>
             </nav>
@@ -33,7 +35,6 @@
                         <div class="about-text">
                             <h3 class="slide-in">Hi, I'm Bhavya.</h3>
                             <p class="slide-in">Welcome to my personal space on the web! I've always been fascinated by the ever-evolving world of technology and how it shapes the way we live, work, and play. Whether it's exploring the latest in software and hardware or diving into immersive gaming experiences, I love staying at the intersection of innovation and creativity. Here, you'll find my thoughts, projects, and everything else that fuels my curiosity.</p>
-                            <p class="slide-in">I am born and brought up in Jodhpur, a small city in Rajasthan. My childhood curiosities fuel my current self to try different things, exploring new possiblities and going onto new thrilling adventures.</p>
                         </div>
                     </div>
                 </div>
@@ -41,48 +42,44 @@
             
             <section id="interests" class="section align-right">
                 <h2 class="slide-in-right">My Interests</h2>
-                <div class="section-content">
-                    <div class="profile slide-in-right">
-                        <div class="about-text">
-                            <p class="slide-in-right">I'm passionate about technology, gaming, and exploring new ideas. When not coding, I enjoy reading and outdoor adventures. The constant evolution of technology keeps me engaged and excited about the future possibilities.</p>
+                <div class="interests-container slide-in-right" style="width: 100%; max-width: 100%; padding: 0; margin-right: 0;">
+                    <div class="interest-item">
+                        <div class="interest-image">
+                            <img src="assets/music.png" alt="Music Interest">
                         </div>
-                        <img src="assets/interests.jpg" alt="My Interests" class="profile-img">
+                        <div class="interest-content">
+                            <h3>Music</h3>
+                            <p>I enjoy listening to a variety of music genres including indie rock, classical, and electronic. Music helps me focus while coding and unwind after a long day.</p>
+                        </div>
                     </div>
-                </div>
-            </section>
-            
-            <section id="gallery" class="section">
-                <h2 class="slide-in">Gallery</h2>
-                <div class="section-content">
-                    <div class="gallery-container-alternating">
-                        <div class="gallery-item-alternating slide-in">
-                            <div class="gallery-image">
-                                <img src="assets/gallery1.jpg" alt="Gallery Image 1">
-                            </div>
-                            <div class="gallery-info">
-                                <h3>Adventure</h3>
-                                <p>Exploring new places and experiencing different cultures is one of my greatest passions.</p>
-                            </div>
+                    
+                    <div class="interest-item right">
+                        <div class="interest-image">
+                            <img src="assets/gaming.png" alt="Gaming Interest">
                         </div>
-                        
-                        <div class="gallery-item-alternating right slide-in slide-in-right">
-                            <div class="gallery-image">
-                                <img src="assets/gallery2.jpg" alt="Gallery Image 2">
-                            </div>
-                            <div class="gallery-info">
-                                <h3>Technology</h3>
-                                <p>Staying updated with the latest technological advancements keeps me inspired and motivated.</p>
-                            </div>
+                        <div class="interest-content">
+                            <h3>Gaming</h3>
+                            <p>I'm passionate about video games, especially strategy and RPG titles. Gaming offers a creative escape and helps me develop problem-solving skills in engaging virtual environments.</p>
                         </div>
-                        
-                        <div class="gallery-item-alternating slide-in">
-                            <div class="gallery-image">
-                                <img src="assets/gallery3.jpg" alt="Gallery Image 3">
-                            </div>
-                            <div class="gallery-info">
-                                <h3>Creativity</h3>
-                                <p>Finding creative solutions to complex problems is what drives my approach to work.</p>
-                            </div>
+                    </div>
+                    
+                    <div class="interest-item">
+                        <div class="interest-image">
+                            <img src="assets/nature.png" alt="Nature Interest">
+                        </div>
+                        <div class="interest-content">
+                            <h3>Watching Nature</h3>
+                            <p>I find peace in observing natural landscapes, from serene forests to majestic mountains. Nature watching helps me reconnect with the world around me and find inspiration for my creative endeavors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="interest-item right">
+                        <div class="interest-image">
+                            <img src="assets/sleeping.png" alt="Sleep Interest">
+                        </div>
+                        <div class="interest-content">
+                            <h3>Sleeping</h3>
+                            <p>I've perfected the art of quality rest! I believe good sleep is foundational to productivity and creativity, and I prioritize maintaining a healthy sleep schedule.</p>
                         </div>
                     </div>
                 </div>
@@ -90,12 +87,19 @@
         </div>
     </div>
 
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+
     <footer>
         <div class="container">
             <p>&copy; 2023 Bhavya. All rights reserved.</p>
         </div>
     </footer>
+    
     <script src="js/tracking.js"></script>
     <script src="js/scroll-animations.js"></script>
+    <script src="js/theme-switcher.js"></script>
 </body>
 </html>

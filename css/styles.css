@@ -1,3 +1,40 @@
+/* Root variables for theming */
+:root {
+    /* Light theme (default) */
+    --primary-color: #ff6b00;
+    --primary-light: #ff8e3c;
+    --primary-dark: #e55d00;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --header-bg: #ff6b00;
+    --header-text: #ffffff;
+    --section-bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --footer-bg: #ff6b00;
+    --footer-text: #ffffff;
+    --line-color: #ff6b00;
+    --image-bg: #f8f8f8;
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+    --primary-color: #ff6b00;
+    --primary-light: #ff8e3c;
+    --primary-dark: #e55d00;
+    --text-color: #f0f0f0;
+    --bg-color: #121212;
+    --header-bg: #202020;
+    --header-text: #ff6b00;
+    --section-bg: #202020;
+    --card-bg: #2d2d2d;
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --footer-bg: #202020;
+    --footer-text: #ff6b00;
+    --line-color: #ff6b00;
+    --image-bg: #2d2d2d;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,13 +49,14 @@ html, body {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Prevent horizontal scroll */
     width: 100%;
     max-width: 100vw; /* Limit to viewport width */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .page-content {
@@ -26,6 +64,7 @@ body {
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: var(--bg-color);
 }
 
 .page-content .container {
@@ -43,8 +82,8 @@ body {
 }
 
 header {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -71,20 +110,19 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--header-text);
     text-decoration: none;
     font-size: 1.1em;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #3498db;
+    color: var(--primary-light);
 }
 
-/* Navigation active state */
 nav ul li a.active {
-    color: #3498db;
-    border-bottom: 2px solid #3498db;
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--primary-light);
 }
 
 /* CV button in navigation - updated to match other nav links */
@@ -92,7 +130,7 @@ nav ul li a.active {
     background-color: transparent;
     padding: 0;
     border-radius: 0;
-    color: white;
+    color: var(--header-text);
     margin-left: 20px;
     transition: color 0.3s;
     text-decoration: none;
@@ -105,21 +143,21 @@ nav ul li a.active {
 
 .cv-nav-button:hover {
     background-color: transparent;
-    color: #3498db;
+    color: var(--primary-light);
     transform: none;
     box-shadow: none;
 }
 
 .cv-nav-button.active {
-    color: #3498db;
-    border-bottom: 2px solid #3498db;
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--primary-light);
 }
 
 /* Keep the standalone CV button styling unchanged */
 .cv-button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -131,7 +169,7 @@ nav ul li a.active {
 }
 
 .cv-button:hover {
-    background-color: #2980b9;
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -139,14 +177,14 @@ nav ul li a.active {
 /* Section styling - Update for full-width edge-to-edge appearance */
 .section {
     padding: 80px 0;
-    margin: 50px 0;
+    margin: 30px 0; /* Standardize margins between sections */
     border-radius: 0;
     position: relative;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background-color: var(--section-bg);
+    box-shadow: 0 5px 15px var(--card-shadow);
     width: 100vw; /* Full viewport width */
     max-width: 100vw; /* Override any max-width constraints */
     margin-left: calc(-50vw + 50%); /* Negative margin technique to break out of container */
@@ -165,6 +203,12 @@ nav ul li a.active {
     box-sizing: border-box;
 }
 
+/* Ensure consistent background color across all sections */
+.section-content {
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
 /* Section title positioning for edge-to-edge sections */
 .section h2:first-child {
     width: 90%;
@@ -173,15 +217,17 @@ nav ul li a.active {
     margin-right: auto;
     margin-bottom: 40px;
     padding-bottom: 15px;
-    border-bottom: 3px solid #3498db;
+    border-bottom: 3px solid var(--line-color);
     display: inline-block;
-    color: #2c3e50;
+    color: var(--text-color);
     box-sizing: border-box;
 }
 
 /* Remove unique section styling - make all sections consistent */
-#about, #education, #skills, #gallery, #cv {
-    background-color: white;
+#about, #education, #skills, #gallery, #cv, #interests {
+    background-color: var(--section-bg);
+    box-shadow: 0 5px 15px var(--card-shadow);
+    margin: 30px 0; /* Standardize margins between sections */
 }
 
 /* Remove Section dividers */
@@ -193,9 +239,9 @@ nav ul li a.active {
 .section h2:first-child {
     margin-bottom: 40px;
     padding-bottom: 15px;
-    border-bottom: 3px solid #3498db;
+    border-bottom: 3px solid var(--line-color);
     display: inline-block;
-    color: #2c3e50;
+    color: var(--text-color);
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
@@ -230,7 +276,7 @@ nav ul li a.active {
 .align-right .section-content {
     display: flex;
     flex-direction: row-reverse !important;
-    justify-content: flex-start;
+    justify-content: flex-start !important;
     margin-right: 5% !important;
     margin-left: auto !important;
     width: 90% !important;
@@ -319,19 +365,19 @@ nav ul li a.active {
 
 .about-text h2 {
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: var(--text-color);
 }
 
 .education-item {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--card-shadow);
 }
 
 .education-item h3 {
-    color: #2c3e50;
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 
@@ -346,13 +392,13 @@ nav ul li a.active {
     flex: 1;
     min-width: 250px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--card-shadow);
 }
 
 .skill-category h3 {
-    color: #2c3e50;
+    color: var(--text-color);
     margin-bottom: 15px;
     text-align: left; /* Change from center to left */
 }
@@ -381,22 +427,38 @@ nav ul li a.active {
 .skill-item-alternating {
     display: flex;
     align-items: stretch; /* Make items stretch to fill height */
-    width: 100vw;
     gap: 0;
     padding: 0;
     border-radius: 0;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--card-shadow);
     transition: all 0.3s ease;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
     margin-bottom: 0;
     overflow: hidden;
 }
 
+/* Adjust skill item to not touch opposite edge */
+.skill-item-alternating:not(.right) {
+    flex-direction: row;
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: calc(-50vw + 50%);
+    margin-right: auto; /* Not extending to right edge */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.skill-item-alternating.right {
+    flex-direction: row-reverse;
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: auto; /* Not extending to left edge */
+    margin-right: calc(-50vw + 50%);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
 /* Remove alternate background colors */
 .skill-item-alternating:not(.right) {
-    background-color: white;
+    background-color: var(--card-bg);
 }
 
 /* Update skill content layout */
@@ -425,7 +487,7 @@ nav ul li a.active {
     flex: 1;
     min-height: 300px;
     overflow: hidden;
-    background-color: #f8f8f8;
+    background-color: var(--image-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -446,7 +508,7 @@ nav ul li a.active {
     flex: 1;
     height: 300px;
     overflow: hidden;
-    background-color: #f8f8f8;
+    background-color: var(--image-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,14 +518,6 @@ nav ul li a.active {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.skill-item-alternating:not(.right) {
-    flex-direction: row;
-}
-
-.skill-item-alternating.right {
-    flex-direction: row-reverse;
 }
 
 /* Education items styled to have edge images */
@@ -480,20 +534,36 @@ nav ul li a.active {
 .education-item {
     display: flex;
     align-items: stretch;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
     padding: 0;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--card-shadow);
     position: relative;
     margin-bottom: 0;
     overflow: hidden;
 }
 
+/* Education items edge treatment */
+.education-item:not(.right) {
+    flex-direction: row;
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: calc(-50vw + 50%);
+    margin-right: auto; /* Not extending to right edge */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.education-item.right {
+    flex-direction: row-reverse;
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: auto; /* Not extending to left edge */
+    margin-right: calc(-50vw + 50%);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
 /* Remove alternate background colors */
 .education-item:not(.right) {
-    background-color: white;
+    background-color: var(--card-bg);
 }
 
 /* Education content padding based on alignment */
@@ -510,34 +580,54 @@ nav ul li a.active {
 .education-item .education-content {
     width: 50%;
     padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
 }
 
+/* Fix education images being cut off */
 .education-item .education-image {
     flex: 1;
-    height: 300px;
-    background-color: #f8f8f8;
+    min-height: 300px;
+    background-color: var(--image-bg);
     overflow: hidden;
+    padding: 20px; /* Add padding to prevent content touching edges */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .education-item .education-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.education-item:not(.right) {
-    flex-direction: row;
-}
-
-.education-item.right {
-    flex-direction: row-reverse;
+    max-width: 100%;
+    max-height: 280px; /* Slightly smaller than container to ensure padding */
+    width: auto; /* Allow natural width */
+    height: auto; /* Allow natural height */
+    object-fit: contain; /* Prevent cutting off image */
+    border-radius: 4px; /* Optional: add slight rounding */
 }
 
 /* Make gallery items more consistent with new design */
 .gallery-item-alternating {
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--card-shadow);
     margin-bottom: 60px;
+}
+
+/* Gallery items edge treatment */
+.gallery-item-alternating:not(.right) {
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: calc(-50vw + 50%);
+    margin-right: auto; /* Not extending to right edge */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.gallery-item-alternating.right {
+    width: 95vw; /* Reduced from 100vw */
+    margin-left: auto; /* Not extending to left edge */
+    margin-right: calc(-50vw + 50%);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 /* Updated Gallery image styling to match skills section */
@@ -546,7 +636,7 @@ nav ul li a.active {
     min-height: 400px;
     overflow: hidden;
     position: relative;
-    background-color: #f8f8f8;
+    background-color: var(--image-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -564,6 +654,18 @@ nav ul li a.active {
 
 /* Make responsive fixes for mobile */
 @media (max-width: 768px) {
+    .skill-item-alternating:not(.right),
+    .skill-item-alternating.right,
+    .education-item:not(.right),
+    .education-item.right,
+    .gallery-item-alternating:not(.right),
+    .gallery-item-alternating.right {
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 8px;
+    }
+    
     .skill-item-alternating,
     .skill-item-alternating.right,
     .education-item,
@@ -628,14 +730,11 @@ nav ul li a.active {
 .gallery-item-alternating {
     display: flex;
     align-items: center;
-    width: 100vw;
     gap: 0;
     padding: 0;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     position: relative;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
 }
 
 /* Left-aligned gallery items */
@@ -680,6 +779,7 @@ nav ul li a.active {
     height: 500px;
     overflow: hidden;
     position: relative;
+    background-color: var(--image-bg);
 }
 
 .gallery-image img {
@@ -734,7 +834,7 @@ nav ul li a.active {
 
 .welcome-content h3 {
     margin: 20px 0;
-    color: #2c3e50;
+    color: var(--text-color);
     font-size: 2em;
 }
 
@@ -754,7 +854,7 @@ nav ul li a.active {
 .btn {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #2c3e50;
+    background-color: var(--header-bg);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -762,13 +862,13 @@ nav ul li a.active {
 }
 
 .btn:hover {
-    background-color: #34495e;
+    background-color: var(--primary-dark);
     transform: translateY(-3px);
 }
 
 footer {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
@@ -903,13 +1003,60 @@ footer {
     left: 0;
     width: 100%; /* Make the line full width */
     height: 3px;
-    background-color: #3498db;
+    background-color: var(--line-color);
 }
 
 /* Remove default border-bottom from heading */
 #education h2,
 #skills h2 {
     border-bottom: none;
+}
+
+/* Section heading alignment with extended blue line to right edge */
+#about h2,
+#education h2, 
+#skills h2, 
+#gallery h2,
+#interests h2 {
+    text-align: left !important;
+    align-self: flex-start !important;
+    margin-left: 2% !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: none !important;
+}
+
+/* Create a full-width container for the blue line */
+#about h2::before,
+#education h2::before,
+#skills h2::before,
+#gallery h2::before,
+#interests h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 3px;
+    background-color: var(--line-color);
+}
+
+/* Hide the previous shorter blue line */
+#education h2:after,
+#skills h2:after,
+#gallery h2:after,
+#about h2:after,
+#interests h2:after {
+    display: none;
+}
+
+/* Override any centered alignment that might be applied elsewhere */
+.section h2:first-child {
+    margin-left: 2% !important;
+    width: 98%;
+    border-bottom: none !important;
 }
 
 /* Section heading alignment fixes - Shifted more to the left */
@@ -936,7 +1083,7 @@ footer {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #3498db;
+    background-color: var(--line-color);
 }
 
 /* Override any centered alignment that might be applied elsewhere */
@@ -951,4 +1098,188 @@ footer {
     width: 100%;
     max-width: 96%;
     margin-left: 2% !important; /* Reduced from 5% to 2% */
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 24px;
+}
+
+/* Interest section styling - COMPLETE REWRITE */
+.interests-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+}
+
+/* Base styles for all interest items */
+.interest-item {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Increased from 30px to space out larger images */
+    background-color: var(--card-bg);
+    padding: 40px; /* Increased from 30px to give more space */
+    box-shadow: 0 4px 10px var(--card-shadow);
+    transition: transform 0.3s ease;
+    width: 95vw; /* Fixed width for all items */
+    border-radius: 0;
+    overflow: hidden;
+    position: relative; /* Ensure proper positioning */
+    opacity: 0; /* Start hidden */
+    transform: translateX(100px); /* Slide in from the right */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.interest-item.appear {
+    opacity: 1;
+    transform: translateX(0); /* Reset position when appearing */
+}
+
+/* Style specifically for LEFT interest items */
+.interest-item:not(.right) {
+    flex-direction: row;
+    text-align: left;
+    margin-left: calc(-50vw + 50%); /* Extend to left edge */
+    margin-right: auto;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transform: translateX(-100px); /* Slide in from the left */
+}
+
+.interest-item:not(.right).appear {
+    transform: translateX(0); /* Reset position when appearing */
+}
+
+/* Style specifically for RIGHT interest items - FIXED ALIGNMENT */
+.interest-item.right {
+    flex-direction: row-reverse;
+    text-align: right;
+    margin-left: auto;
+    /* This is the key fix - calculate to align with right viewport edge */
+    margin-right: calc(-50vw + 50%);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    /* Ensure it works across different screen sizes */
+    right: 0;
+}
+
+/* Ensure interest section's container doesn't constrain the items */
+.align-right .interests-container {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important; /* Allow overflow for edge-to-edge items */
+}
+
+/* Image styling for interest items - FIXING CIRCLE CUTOFF */
+.interest-image {
+    /* Increase container dimensions */
+    flex: 0 0 220px; /* Increased for more space */
+    height: 220px; /* Increased for more space */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--image-bg);
+    box-shadow: 0 6px 12px var(--card-shadow);
+    transition: transform 0.3s ease;
+    /* Add padding inside container */
+    padding: 5px; /* Add small internal padding */
+    margin: 10px; /* Add margin around the circle */
+    border: 2px solid var(--bg-color); /* Optional: add border to enhance the circle */
+}
+
+.interest-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 50%; /* Ensure the image itself is also circular */
+}
+
+/* Adjust interest item padding and gap for the larger image circles */
+.interest-item {
+    padding: 30px 40px; /* Adjust horizontal/vertical padding */
+    gap: 40px; /* Keep existing gap */
+}
+
+/* Fix content layout to accommodate larger circles */
+.interest-content {
+    flex: 1;
+    max-width: calc(100% - 300px); /* Adjusted based on circle size + gap */
+}
+
+/* Adjust hover animations to prevent cutoff */
+.interest-item:hover .interest-image {
+    transform: scale(1.03); /* Reduced from 1.05 to prevent overflow */
+}
+
+.interest-item:hover .interest-image img {
+    transform: scale(1.1); /* Reduced from 1.15 to prevent overflow */
+}
+
+.interest-content h3 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.interest-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Right-align interests section heading with line extending to the left */
+#interests h2 {
+    text-align: right !important;
+    align-self: flex-end !important;
+    margin-right: 2% !important;
+    margin-left: auto !important;
+    width: 100% !important;
+    padding-bottom: 15px;
+    border-bottom: none !important;
+    position: relative;
+}
+
+#interests h2::after {
+    content: '';
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: -99vw;
+    width: 161.5vw;
+    height: 3px;
+    background-color: var(--line-color);
+}
+
+#interests h2::before {
+    display: none;
 }

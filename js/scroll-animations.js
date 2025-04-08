@@ -3,14 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        const windowWidth = window.innerWidth || document.documentElement.clientWidth;
         
         // Start animation when element is approaching viewport (200px before entering)
         return (
-            rect.top <= windowHeight + 200 &&  // Element is within viewport + 200px buffer
-            rect.bottom >= -100 &&  // Allow elements that are just above viewport to animate out
-            rect.left <= windowWidth &&
-            rect.right >= 0
+            rect.top <= windowHeight + 50 &&  // Element is within viewport + 200px buffer
+            rect.bottom >= -100  // Allow elements that are just above viewport to animate out
         );
     }
 
@@ -23,6 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.classList.add('appear');
             } else {
                 element.classList.remove('appear');
+            }
+        });
+
+        // Animate interest items
+        const interestItems = document.querySelectorAll('.interest-item');
+        interestItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                item.classList.add('appear');
+            } else {
+                item.classList.remove('appear');
             }
         });
     }
