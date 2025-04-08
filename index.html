@@ -4,113 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhavya's Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Bhavya Parihar</h1>
+            <h2>Bhavya's personal website</h2>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="assets/cv.pdf" class="cv-nav-button" download>Download CV</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="about" class="container section">
-        <div class="profile">
-            <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
-            <div class="about-text">
-                <h2>Hi, I'm Bhavya.</h2>
-                <p>Welcome to my personal space on the web! I’ve always been fascinated by the ever-evolving world of technology and how it shapes the way we live, work, and play. Whether it's exploring the latest in software and hardware or diving into immersive gaming experiences, I love staying at the intersection of innovation and creativity. Here, you'll find my thoughts, projects, and everything else that fuels my curiosity. </p>
-                <p>I am born and brought up in Jodhpur, a small city in Rajasthan. My childhood curiosities fuel my current self to try different things, exploring new possiblities and going onto new thrilling adventures.</p>
-            </div>
+    <div class="page-content">
+        <div class="container">
+            <section id="about" class="section align-left">
+                <h2 class="slide-in">About Me</h2>
+                <div class="section-content">
+                    <div class="profile slide-in">
+                        <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
+                        <div class="about-text">
+                            <h3 class="slide-in">Hi, I'm Bhavya.</h3>
+                            <p class="slide-in">Welcome to my personal space on the web! I've always been fascinated by the ever-evolving world of technology and how it shapes the way we live, work, and play. Whether it's exploring the latest in software and hardware or diving into immersive gaming experiences, I love staying at the intersection of innovation and creativity. Here, you'll find my thoughts, projects, and everything else that fuels my curiosity.</p>
+                            <p class="slide-in">I am born and brought up in Jodhpur, a small city in Rajasthan. My childhood curiosities fuel my current self to try different things, exploring new possiblities and going onto new thrilling adventures.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="interests" class="section align-right">
+                <h2 class="slide-in-right">My Interests</h2>
+                <div class="section-content">
+                    <div class="profile slide-in-right">
+                        <div class="about-text">
+                            <p class="slide-in-right">I'm passionate about technology, gaming, and exploring new ideas. When not coding, I enjoy reading and outdoor adventures. The constant evolution of technology keeps me engaged and excited about the future possibilities.</p>
+                        </div>
+                        <img src="assets/interests.jpg" alt="My Interests" class="profile-img">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gallery" class="section">
+                <h2 class="slide-in">Gallery</h2>
+                <div class="section-content">
+                    <div class="gallery-container-alternating">
+                        <div class="gallery-item-alternating edge-left slide-in">
+                            <div class="gallery-image">
+                                <img src="assets/gallery1.jpg" alt="Gallery Image 1">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Adventure</h3>
+                                <p>Exploring new places and experiencing different cultures is one of my greatest passions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item-alternating edge-right slide-in-right">
+                            <div class="gallery-image">
+                                <img src="assets/gallery2.jpg" alt="Gallery Image 2">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Technology</h3>
+                                <p>Staying updated with the latest technological advancements keeps me inspired and motivated.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item-alternating edge-left slide-in">
+                            <div class="gallery-image">
+                                <img src="assets/gallery3.jpg" alt="Gallery Image 3">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Creativity</h3>
+                                <p>Finding creative solutions to complex problems is what drives my approach to work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <section id="education" class="container section">
-        <h2>Education</h2>
-        
-        <div class="education-item">
-            <h3>International Institute of Information Technology Hyderabad</h3>
-            <p><b>Bachelor of Technology in Computer Science</b></p>
-            <p><b>Masters in Computational Natural Sciences</b></p>
-            <p>2024 - ongoing</p>
-        </div>
-        <div class="education-item">
-            <h3>High School</h3>
-            <p><b>Allen Coaching Institute</b></p>
-            <p>2022 - 2024</p>
-        </div>
-    </section>
-
-    <section id="skills" class="container section">
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Proficient</h3>
-                <ul>
-                    <li>C programming</li>
-                    <li>C++ programming</li>
-                    <li>SQL</li>
-                    <li>NoSQL</li>
-                    <li>Python</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Beginner</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Bash</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Git</li>
-                    <li>javascript</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="container section">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="assets/ghantagar.jpg" alt="Hometown Picture 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/umaidbhawan.jpg" alt="Hometown Picture 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/mandore4.jpg" alt="Hometown Picture 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/highcourt.jpg" alt="Hometown Picture 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/fortpath.jpg" alt="Hometown Picture 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/jaswanthada.jpg" alt="Hometown Picture 1">
-            </div>
-        </div>
-    </section>
-
-    <section id="cv" class="container section">
-        <h2>Curriculum Vitae</h2>
-        <p>Download my complete CV for more details about my experience and qualifications.</p>
-        <a href="assets/cv.pdf" class="cv-button" download>Download CV</a>
-    </section>
+    </div>
 
     <footer>
         <div class="container">
             <p>&copy; 2023 Bhavya. All rights reserved.</p>
         </div>
     </footer>
-    
-    <script src="tracking.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/scroll-animations.js"></script>
 </body>
 </html>
