@@ -366,168 +366,318 @@ nav ul li a.active {
     border-bottom: 1px solid #eee;
 }
 
-/* New alternating skills layout */
+/* Updated skills layout with edge-to-edge images */
 .skills-container-alternating {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px; /* Add spacing between skill items */
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     box-sizing: border-box;
     overflow: visible;
-    margin: 0 auto;
+    margin: 40px 0;
 }
 
 .skill-item-alternating {
     display: flex;
-    align-items: center;
-    gap: 30px;
-    padding: 25px;
-    border-radius: 8px;
+    align-items: stretch; /* Make items stretch to fill height */
+    width: 100vw;
+    gap: 0;
+    padding: 0;
+    border-radius: 0;
     background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-bottom: 0;
+    overflow: hidden;
 }
 
-.skill-item-alternating:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
+/* Remove alternate background colors */
+.skill-item-alternating:not(.right) {
+    background-color: white;
+}
+
+/* Update skill content layout */
+.skill-item-alternating .skill-content {
+    display: flex;
+    width: 50%; /* Half width for text content */
+    max-width: 800px;
+    margin: 0;
+    padding: 60px;
+    align-items: center;
+}
+
+/* Adjust skill item padding based on alignment */
+.skill-item-alternating:not(.right) .skill-content {
+    padding-right: 10%;
+    padding-left: 60px;
+}
+
+.skill-item-alternating.right .skill-content {
+    padding-left: 10%;
+    padding-right: 60px;
+}
+
+/* Updated skill image styling to prevent cutting off */
+.skill-item-alternating .skill-image {
+    flex: 1;
+    min-height: 300px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.skill-item-alternating .skill-image img {
+    max-width: 100%;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Make the logo/image take the full edge */
+.skill-item-alternating .skill-image {
+    flex: 1;
+    height: 300px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-item-alternating .skill-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skill-item-alternating:not(.right) {
+    flex-direction: row;
 }
 
 .skill-item-alternating.right {
     flex-direction: row-reverse;
 }
 
-.skill-logo {
-    flex: 0 0 120px;
+/* Education items styled to have edge images */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Add spacing between education items */
+    width: 100%;
+    max-width: 100%;
+    margin: 40px 0;
+    padding: 0;
+}
+
+.education-item {
+    display: flex;
+    align-items: stretch;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+/* Remove alternate background colors */
+.education-item:not(.right) {
+    background-color: white;
+}
+
+/* Education content padding based on alignment */
+.education-item:not(.right) .education-content {
+    padding-right: 10%;
+    padding-left: 60px;
+}
+
+.education-item.right .education-content {
+    padding-left: 10%;
+    padding-right: 60px;
+}
+
+.education-item .education-content {
+    width: 50%;
+    padding: 60px;
+}
+
+.education-item .education-image {
+    flex: 1;
+    height: 300px;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+
+.education-item .education-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.education-item:not(.right) {
+    flex-direction: row;
+}
+
+.education-item.right {
+    flex-direction: row-reverse;
+}
+
+/* Make gallery items more consistent with new design */
+.gallery-item-alternating {
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 60px;
+}
+
+/* Updated Gallery image styling to match skills section */
+.gallery-image {
+    flex: 0 0 50%;
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f8f8;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 }
 
-.skill-logo img {
-    width: 80px;
-    height: 80px;
+.gallery-image img {
+    max-width: 100%;
+    max-height: 340px;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    object-position: center;
 }
 
-.skill-info {
-    flex: 1;
-}
-
-.skill-info h3 {
-    margin-bottom: 12px;
-    color: #2c3e50;
-    font-size: 1.4em;
-}
-
-.skill-info p {
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Make alternating skills responsive */
+/* Make responsive fixes for mobile */
 @media (max-width: 768px) {
     .skill-item-alternating,
-    .skill-item-alternating.right {
+    .skill-item-alternating.right,
+    .education-item,
+    .education-item.right {
+        flex-direction: column;
+    }
+    
+    .skill-item-alternating .skill-content,
+    .education-item .education-content {
+        width: 100%;
+        padding: 40px;
+        order: 2; /* Put content after image on mobile */
+    }
+    
+    .skill-item-alternating .skill-image,
+    .education-item .education-image {
+        width: 100%;
+        order: 1; /* Put image before content on mobile */
+    }
+}
+
+/* Make alternating gallery responsive - updated for consistent styling */
+@media (max-width: 992px) {
+    .gallery-item-alternating,
+    .gallery-item-alternating.right {
         flex-direction: column;
         text-align: center;
     }
     
-    .skill-logo {
-        margin-bottom: 20px;
+    .gallery-image {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 !important;
+        min-height: 300px;
+    }
+    
+    .gallery-info {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
 }
 
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.gallery-item p {
-    padding: 15px;
-    text-align: left; /* Change from center to left */
-}
-
-/* New alternating gallery layout */
+/* New alternating gallery layout - Extended to edges */
 .gallery-container-alternating {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 80px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     box-sizing: border-box;
     overflow: visible;
-    margin: 0 auto;
+    margin: 60px 0;
+    padding: 0;
 }
 
 /* Base gallery item styling */
 .gallery-item-alternating {
     display: flex;
     align-items: center;
-    width: 100%;
-    gap: 40px;
+    width: 100vw;
+    gap: 0;
     padding: 0;
     background-color: white;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: relative;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 /* Left-aligned gallery items */
-.gallery-item-alternating.edge-left {
+.gallery-item-alternating:not(.right) {
     flex-direction: row;
     text-align: left;
-    margin-right: 5%;
 }
 
-.gallery-item-alternating.edge-left .gallery-image {
+.gallery-item-alternating:not(.right) .gallery-image {
     margin-left: 0;
     margin-right: auto;
 }
 
-.gallery-item-alternating.edge-left .gallery-info {
-    padding-left: 40px;
-    padding-right: 60px;
+.gallery-item-alternating:not(.right) .gallery-info {
+    padding-left: 60px;
+    padding-right: 10%;
     text-align: left;
+    margin-left: 0;
 }
 
 /* Right-aligned gallery items */
-.gallery-item-alternating.edge-right {
+.gallery-item-alternating.right {
     flex-direction: row-reverse;
     text-align: right;
-    margin-left: 5%;
 }
 
-.gallery-item-alternating.edge-right .gallery-image {
+.gallery-item-alternating.right .gallery-image {
     margin-right: 0;
     margin-left: auto;
 }
 
-.gallery-item-alternating.edge-right .gallery-info {
-    padding-right: 40px;
-    padding-left: 60px;
+.gallery-item-alternating.right .gallery-info {
+    padding-right: 60px;
+    padding-left: 10%;
     text-align: right;
+    margin-right: 0;
 }
 
-/* Gallery image styling */
+/* Gallery image styling - Expanded to full height */
 .gallery-image {
-    max-width: 50%;
-    min-width: 300px;
-    height: 400px;
+    flex: 0 0 50%;
+    height: 500px;
     overflow: hidden;
     position: relative;
 }
@@ -540,48 +690,34 @@ nav ul li a.active {
     display: block;
 }
 
-.gallery-image img:hover {
-    transform: scale(1.05);
-}
-
 .gallery-info {
-    flex: 1;
-    padding: 30px;
-}
-
-.gallery-info h3 {
-    margin-bottom: 15px;
-    color: #2c3e50;
-    font-size: 1.8em;
-}
-
-.gallery-info p {
-    color: #555;
-    line-height: 1.7;
-    font-size: 1.1em;
+    flex: 0 0 50%;
+    padding: 50px 0;
+    max-width: 600px;
 }
 
 /* Make alternating gallery responsive */
-@media (max-width: 768px) {
-    .gallery-item-alternating.edge-left,
-    .gallery-item-alternating.edge-right {
+@media (max-width: 992px) {
+    .gallery-item-alternating,
+    .gallery-item-alternating.right {
         flex-direction: column;
         text-align: center;
-        margin: 0 20px;
     }
     
     .gallery-image {
+        flex: 0 0 100%;
+        width: 100%;
         max-width: 100%;
         margin: 0 !important;
     }
     
     .gallery-info {
-        padding: 30px !important;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px !important;
         text-align: center !important;
-    }
-    
-    .gallery-container-alternating {
-        gap: 60px;
+        margin: 0 auto !important;
     }
 }
 
@@ -668,6 +804,13 @@ footer {
         width: auto;
         display: inline-block;
     }
+    
+    .skill-item-alternating .skill-content,
+    .education-item .education-content,
+    .gallery-item-alternating .gallery-info {
+        padding: 40px !important; /* Override any directional padding on mobile */
+        text-align: center !important;
+    }
 }
 
 /* Animation classes - Enhanced for more visible exit animations */
@@ -739,4 +882,73 @@ footer {
         opacity: 1;
         transform: none;
     }
+}
+
+/* Left align education and skills headings */
+#education h2, 
+#skills h2 {
+    text-align: left;
+    margin-left: 2%;
+    width: auto;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Extend blue line horizontally */
+#education h2:after,
+#skills h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Make the line full width */
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Remove default border-bottom from heading */
+#education h2,
+#skills h2 {
+    border-bottom: none;
+}
+
+/* Section heading alignment fixes - Shifted more to the left */
+#education h2, 
+#skills h2, 
+#gallery h2 {
+    text-align: left !important;
+    align-self: flex-start !important;
+    margin-left: 2% !important; /* Reduced from 5% to 2% */
+    width: 98% !important;
+    display: block !important;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: none !important;
+}
+
+/* Extend blue line horizontally */
+#education h2:after,
+#skills h2:after,
+#gallery h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Override any centered alignment that might be applied elsewhere */
+.section h2:first-child {
+    margin-left: 2% !important; /* Reduced from 5% to 2% */
+    width: 96%;
+}
+
+/* Fix alignment of container to match left alignment */
+.section .section-content {
+    align-self: flex-start;
+    width: 100%;
+    max-width: 96%;
+    margin-left: 2% !important; /* Reduced from 5% to 2% */
 }
