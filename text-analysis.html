@@ -89,6 +89,24 @@
         tr:nth-child(even) {
             background-color: rgba(0, 0, 0, 0.05);
         }
+        
+        /* Mobile optimization for tables */
+        @media (max-width: 768px) {
+            .table-responsive {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 20px;
+            }
+            
+            textarea {
+                font-size: 16px; /* Prevent iOS zoom on input */
+            }
+            
+            button {
+                width: 100%; /* Full width buttons on mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -144,23 +162,25 @@
                         <!-- Indefinite Articles -->
                         <div class="result-section">
                             <h3>Indefinite Articles</h3>
-                            <div id="articles-stats"></div>
+                            <div id="articles-stats"></div>ript src="js/mobile-nav.js"></script>
                         </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
+                    </div></html>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Bhavya. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <script src="js/tracking.js"></script>
-    <script src="js/scroll-animations.js"></script>
-    <script src="js/theme-switcher.js"></script>
-    <script src="js/text-analysis.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html></body>    <script src="js/text-analysis.js"></script>    <script src="js/theme-switcher.js"></script>    <script src="js/scroll-animations.js"></script>    <script src="js/tracking.js"></script>        </footer>        </div>            <p>&copy; 2023 Bhavya. All rights reserved.</p>        <div class="container">    <footer>    </div>        </div>            </section>                </div>

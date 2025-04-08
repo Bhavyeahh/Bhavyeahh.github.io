@@ -1283,3 +1283,177 @@ footer {
 #interests h2::before {
     display: none;
 }
+
+/* Mobile Navigation - Hamburger Menu */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--header-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+}
+
+/* Enhanced Mobile Responsive Design */
+@media (max-width: 768px) {
+    /* Header and Navigation */
+    header .container {
+        position: relative;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--header-bg);
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        padding: 80px 20px 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+    
+    nav ul.open {
+        transform: translateX(0);
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    nav ul li a,
+    .cv-nav-button {
+        display: block;
+        font-size: 1.2rem;
+        width: 100%;
+        padding: 10px 0;
+        text-align: left;
+    }
+    
+    /* Fix section paddings for mobile */
+    .section {
+        padding: 60px 0;
+    }
+    
+    /* Adjust content containers */
+    .section-content {
+        padding: 0 10px;
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    /* Fix profile layout */
+    .profile-img {
+        max-width: 180px;
+    }
+    
+    .about-text {
+        max-width: 100%;
+    }
+    
+    /* Improve interest items on mobile */
+    .interest-item,
+    .interest-item.right {
+        width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 30px 20px;
+        border-radius: 8px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .interest-image {
+        margin: 0 auto 20px;
+    }
+    
+    .interest-content {
+        max-width: 100%;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    
+    /* Education items */
+    .education-item .education-image {
+        height: auto;
+        padding: 30px;
+    }
+    
+    /* Text analysis tool responsiveness */
+    .text-analysis-container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    textarea {
+        min-height: 200px;
+    }
+    
+    table, th, td {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+}
+
+/* Additional responsiveness for very small screens */
+@media (max-width: 480px) {
+    header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Make the circle images smaller on very small screens */
+    .interest-image {
+        flex: 0 0 180px;
+        height: 180px;
+    }
+    
+    /* Adjust theme toggle button position for small screens */
+    .theme-toggle {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Ensure proper touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    nav ul li a,
+    .cv-nav-button,
+    .btn,
+    button {
+        padding: 12px 24px;  /* Minimum 44x44px touch target */
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+    }
+}
