@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unethical Skills | Bhavya's Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+        }
+        
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg">
+        <canvas id="matrix"></canvas>
+    </div>
+
+    <div class="matrix-content">
+        <div class="unethical-card">
+            <h2>Unethical Skills</h2>
+            <p class="unethical-skill">Can connect to anyone's wifi*</p>
+            <p class="unethical-skill">Can login into anyones's instagram*</p>
+            <button class="read-more">Read More</button>
+            <div class="hidden-content">
+                <p>* only if password is known</p>
+            </div>
+        </div>
+        
+        <a href="skills.html" class="back-to-skills">
+            <i class="fas fa-arrow-left"></i> Back to Normal Skills
+        </a>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas dimensions to window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Characters to display (only 0s and 1s as requested)
+        const chars = '01';
+        
+        // Font size and columns setup
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        
+        // Array to store drops (y position)
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * -canvas.height);
+        }
+        
+        // Drawing the characters
+        function draw() {
+            // Translucent black background to show trail
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Green text for Matrix effect
+            ctx.fillStyle = '#0f0';
+            ctx.font = `${fontSize}px monospace`;
+            
+            // Loop over each drop
+            for (let i = 0; i < drops.length; i++) {
+                // Get random character
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                
+                // Draw the character
+                ctx.fillText(text, i * fontSize, drops[i]);
+                
+                // Reset drop when it reaches bottom or randomly
+                if (drops[i] > canvas.height || Math.random() > 0.98) {
+                    drops[i] = Math.floor(Math.random() * -canvas.height);
+                }
+                
+                // Move drop down
+                drops[i] += fontSize;
+            }
+        }
+        
+        // Animation loop
+        setInterval(draw, 50);
+        
+        // Resize canvas when window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Toggle "Read More" functionality
+        document.querySelector('.read-more').addEventListener('click', function() {
+            const card = document.querySelector('.unethical-card');
+            card.classList.toggle('expanded');
+            
+            if (card.classList.contains('expanded')) {
+                this.textContent = 'Read Less';
+            } else {
+                this.textContent = 'Read More';
+            }
+        });
+    </script>
+    
+    <script src="js/mobile-nav.js"></script>
+</body>
+</html>
