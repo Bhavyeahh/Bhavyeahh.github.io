@@ -46,7 +46,3 @@ A modern, responsive personal website showcasing my education, skills, gallery, 
    - Your CV as `cv.pdf`
 3. Customize the content in `index.html` to reflect your information
 4. Add any additional images or audio files to the `assets` folder
-
-## Deployment
-
-This website is designed to be deployed on GitHub Pages.
