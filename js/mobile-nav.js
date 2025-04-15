@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Create mobile nav toggle button
     const header = document.querySelector('header .container');
     const nav = document.querySelector('nav ul');
     
@@ -10,23 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     header.insertBefore(mobileNavToggle, nav.parentElement);
     
-    // Toggle mobile navigation
     mobileNavToggle.addEventListener('click', function() {
         const isOpen = nav.classList.toggle('open');
         
-        // Update icon based on state
         mobileNavToggle.innerHTML = isOpen ? 
             '<i class="fas fa-times"></i>' : 
             '<i class="fas fa-bars"></i>';
         
-        // Update aria-expanded attribute
         mobileNavToggle.setAttribute('aria-expanded', isOpen.toString());
         
-        // Prevent body scrolling when menu is open
         document.body.style.overflow = isOpen ? 'hidden' : '';
     });
     
-    // Close menu when clicking links
     nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function() {
             nav.classList.remove('open');
@@ -36,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (nav.classList.contains('open') && 
             !nav.contains(event.target) && 
@@ -48,11 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Update text analysis responsiveness
     if (document.getElementById('text-analysis')) {
         const resultsContainer = document.getElementById('results-container');
         
-        // Make tables scroll horizontally on small screens
         const addResponsiveTables = function() {
             const tables = resultsContainer.querySelectorAll('table');
             tables.forEach(table => {
@@ -66,9 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
         
-        // Hook into the analyze button click event
         document.getElementById('analyze-btn').addEventListener('click', function() {
-            // Add a slight delay to ensure tables are in the DOM
             setTimeout(addResponsiveTables, 100);
         });
     }

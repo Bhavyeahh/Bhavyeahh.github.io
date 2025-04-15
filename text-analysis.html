@@ -90,7 +90,6 @@
             background-color: rgba(0, 0, 0, 0.05);
         }
         
-        /* Mobile optimization for tables */
         @media (max-width: 768px) {
             .table-responsive {
                 width: 100%;
@@ -100,11 +99,11 @@
             }
             
             textarea {
-                font-size: 16px; /* Prevent iOS zoom on input */
+                font-size: 16px;
             }
             
             button {
-                width: 100%; /* Full width buttons on mobile */
+                width: 100%;
             }
         }
     </style>
@@ -126,7 +125,6 @@
         </div>
     </header>
 
-    <!-- Theme toggle button -->
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
         <i id="theme-icon" class="fas fa-moon"></i>
     </button>
@@ -141,25 +139,21 @@
                     <button id="analyze-btn">Analyze Text</button>
                     
                     <div class="results-container" id="results-container" style="display: none;">
-                        <!-- Basic statistics -->
                         <div class="result-section">
                             <h3>Basic Text Statistics</h3>
                             <div id="basic-stats"></div>
                         </div>
                         
-                        <!-- Pronouns -->
                         <div class="result-section">
                             <h3>Pronouns</h3>
                             <div id="pronouns-stats"></div>
                         </div>
                         
-                        <!-- Prepositions -->
                         <div class="result-section">
                             <h3>Prepositions</h3>
                             <div id="prepositions-stats"></div>
                         </div>
                         
-                        <!-- Indefinite Articles -->
                         <div class="result-section">
                             <h3>Indefinite Articles</h3>
                             <div id="articles-stats"></div>

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Define audio mapping for each interest section
     const interestAudios = [
         { name: 'Music', audioFile: 'music.mp3' },
         { name: 'Gaming', audioFile: 'gaming.mp3' },
@@ -7,14 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Sleeping', audioFile: 'sleeping.mp3' }
     ];
     
-    // Find all interest items
     const allInterestItems = document.querySelectorAll('.interest-item');
     const audioElements = {};
-    
-    // Audio permission state
     let audioPermissionGranted = false;
-    
-    // Create audio notice element
     const audioNotice = document.createElement('div');
     audioNotice.className = 'audio-permission-notice';
     audioNotice.innerHTML = `
@@ -25,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
     document.body.appendChild(audioNotice);
-    
-    // Style the audio notice
     const style = document.createElement('style');
     style.textContent = `
         .audio-permission-notice {
@@ -86,55 +78,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-    
-    // Hide notice by default and show it after a delay
     audioNotice.classList.add('hidden');
     setTimeout(() => {
         audioNotice.classList.remove('hidden');
     }, 1500);
-    
-    // Close notice when clicked
     const closeButton = audioNotice.querySelector('.close-notice');
     closeButton.addEventListener('click', function(e) {
         e.stopPropagation();
         audioNotice.classList.add('hidden');
     });
-    
-    // Create and configure audio elements
     interestAudios.forEach(interest => {
         const audio = new Audio(`assets/${interest.audioFile}`);
         audio.volume = 0.7;
         audio.loop = true;
         audioElements[interest.name] = audio;
-        
-        // Preload audio files
         audio.preload = 'auto';
-        
-        // Add debugging events
         audio.addEventListener('canplaythrough', () => {
             console.log(`${interest.name} audio loaded and ready to play`);
         });
-        
         audio.addEventListener('error', (e) => {
             console.error(`${interest.name} audio error:`, e);
         });
     });
-    
-    // Initialize audio on any user interaction with the page
     function initializeAudio() {
         if (audioPermissionGranted) return;
-        
         console.log("User interaction detected - initializing audio...");
         audioPermissionGranted = true;
-        
-        // Play and immediately pause all audio elements to initialize them
         Object.values(audioElements).forEach(audio => {
-            // Create a user-initiated playback attempt
             const playPromise = audio.play();
-            
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    // Immediately pause the audio
                     audio.pause();
                     audio.currentTime = 0;
                     console.log("Audio initialized successfully");
@@ -143,42 +116,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-        
-        // Hide the notice once permissions are granted
         audioNotice.classList.add('hidden');
-        
-        // Remove the global event listeners once initialized
         document.removeEventListener('click', initializeAudio);
         document.removeEventListener('touchstart', initializeAudio);
     }
-    
-    // Add global event listeners for first interaction
     document.addEventListener('click', initializeAudio);
     document.addEventListener('touchstart', initializeAudio);
-    
-    // Add hover functionality for interest items
     allInterestItems.forEach(item => {
         const heading = item.querySelector('.interest-content h3');
         if (!heading) return;
-        
         const interestName = heading.textContent.trim();
         const audio = audioElements[interestName];
-        
         if (audio) {
-            // Function to play audio for this interest
             const playAudio = (e) => {
-                // Don't try to play audio if permission isn't granted yet
                 if (!audioPermissionGranted) return;
-                
-                // Pause all other audio elements first
                 Object.values(audioElements).forEach(element => {
                     if (element !== audio) {
                         element.pause();
                         element.currentTime = 0;
                     }
                 });
-                
-                // Play this interest's audio
                 const playPromise = audio.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
@@ -186,16 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             };
-            
-            // Function to stop audio
             const stopAudio = () => {
                 if (audio) {
                     audio.pause();
                     audio.currentTime = 0;
                 }
             };
-            
-            // Add hover/touch listeners
             item.addEventListener('mouseenter', playAudio);
             item.addEventListener('mouseleave', stopAudio);
             item.addEventListener('touchstart', playAudio);
@@ -203,8 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('touchcancel', stopAudio);
         }
     });
-    
-    // Ensure all audio stops when user navigates away
     window.addEventListener('beforeunload', () => {
         Object.values(audioElements).forEach(audio => {
             audio.pause();

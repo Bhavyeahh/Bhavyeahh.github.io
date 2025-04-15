@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
     const textInput = document.getElementById('text-input');
     const analyzeBtn = document.getElementById('analyze-btn');
     const resultsContainer = document.getElementById('results-container');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const prepositionsStats = document.getElementById('prepositions-stats');
     const articlesStats = document.getElementById('articles-stats');
     
-    // List of pronouns to check
     const pronouns = [
         'i', 'you', 'he', 'she', 'it', 'we', 'they',
         'me', 'him', 'her', 'us', 'them', 'my', 'your', 
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'which', 'what' , 'many'
     ];
     
-    // List of prepositions to check
     const prepositions = [
         'about', 'above', 'across', 'after', 'against', 'along', 
         'amid', 'among', 'around', 'at', 'before', 'behind', 
@@ -32,57 +29,43 @@ document.addEventListener('DOMContentLoaded', function() {
         'up', 'upon', 'with', 'within', 'without'
     ];
     
-    // List of indefinite articles
     const indefiniteArticles = ['a', 'an'];
     
-    // Add event listener to the analyze button
     analyzeBtn.addEventListener('click', function() {
         const text = textInput.value.trim();
         
         if (text) {
-            // Show results container
             resultsContainer.style.display = 'block';
-            
-            // Perform analysis
             analyzeText(text);
         } else {
             alert('Please enter some text to analyze.');
         }
     });
     
-    // Function to analyze text
     function analyzeText(text) {
-        // Calculate basic statistics
         const stats = calculateBasicStats(text);
         displayBasicStats(stats);
         
-        // Tokenize text (convert to lowercase and split by spaces and punctuation)
         const words = text.toLowerCase()
             .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ')
             .replace(/\s+/g, ' ')
             .trim()
             .split(' ');
         
-        // Count pronouns, prepositions, and indefinite articles
         const pronounCount = countOccurrences(words, pronouns);
         const prepositionCount = countOccurrences(words, prepositions);
         const articleCount = countOccurrences(words, indefiniteArticles);
         
-        // Display results
         displayWordCounts(pronounCount, pronounsStats);
         displayWordCounts(prepositionCount, prepositionsStats);
         displayWordCounts(articleCount, articlesStats);
     }
     
-    // Function to calculate basic text statistics
     function calculateBasicStats(text) {
         const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
         const wordCount = text.trim().split(/\s+/).length;
-
-        // Fix: Count only space characters, exclude newlines and other whitespace
         const spaceCount = (text.match(/ /g) || []).length;
         const newlineCount = (text.match(/\r?\n/g) || []).length;
-
         const specialSymbolCount = (text.match(/[^\w\s]/g) || []).length;
         return {
             letters: letterCount,
@@ -93,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
     
-    // Function to display basic text statistics
     function displayBasicStats(stats) {
         basicStats.innerHTML = `
             <table>
@@ -125,34 +107,28 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
     
-    // Function to count occurrences of words from a specific list
     function countOccurrences(words, wordList) {
         const counts = {};
         
-        // Initialize counts object with zeros for all words in the list
         wordList.forEach(word => {
             counts[word] = 0;
         });
         
-        // Count occurrences
         words.forEach(word => {
             if (wordList.includes(word)) {
                 counts[word] += 1;
             }
         });
         
-        // Remove words with zero occurrences
         Object.keys(counts).forEach(key => {
             if (counts[key] === 0) delete counts[key];
         });
         
-        // Sort by count in descending order
         return Object.fromEntries(
             Object.entries(counts).sort(([, a], [, b]) => b - a)
         );
     }
     
-    // Function to display word counts in a table
     function displayWordCounts(countObj, container) {
         const entries = Object.entries(countObj);
         
