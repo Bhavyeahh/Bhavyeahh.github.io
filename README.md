@@ -22,11 +22,14 @@ A modern, responsive personal website showcasing my education, skills, gallery, 
 ## File Structure
 
 - `index.html`: Main HTML file containing the structure of the website
+- `gallery.html`: HTML file containing the gallery page
+- `education.html`: HTML file containing the education page
+- `skills.html`: HTML file containing the skills page
+- `text-analysis.html`: HTML file containing the text analysis page
 - `styles.css`: CSS file for styling the website
 - `script.js`: JavaScript file for interactive features
 - `assets/`: Folder containing images, audio files, and other assets
   - `profile.jpg`: Profile picture
-  - `hometown1.jpg`, `hometown2.jpg`, `hometown3.jpg`: Hometown images
   - `cv.pdf`: Downloadable CV
 
 ## Technical Implementation
@@ -39,10 +42,4 @@ A modern, responsive personal website showcasing my education, skills, gallery, 
 
 ## How to Use
 
-1. Clone this repository
-2. Create an `assets` folder and add:
-   - Your profile picture as `profile.jpg`
-   - Hometown images as `hometown1.jpg`, `hometown2.jpg`, `hometown3.jpg`
-   - Your CV as `cv.pdf`
-3. Customize the content in `index.html` to reflect your information
-4. Add any additional images or audio files to the `assets` folder
+- Go to Bhavyeahh.github.io
