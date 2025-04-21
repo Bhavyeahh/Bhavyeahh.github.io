@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'ours', 'theirs', 'myself', 'yourself', 'himself',
         'herself', 'itself', 'ourselves', 'themselves', 'this',
         'that', 'these', 'those', 'who', 'whom', 'whose',
-        'which', 'what' , 'many'
+        'which', 'what' 
     ];
     
     const prepositions = [
