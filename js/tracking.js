@@ -12,14 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
             description = `Image: ${target.getAttribute('alt') || 'unnamed image'}`;
         } else if (target.closest('nav')) {
             description = 'Navigation element';
-        } else if (target.classList.contains('cv-button')) {
-            description = 'CV download button';
         } else if (target.closest('.education-item')) {
             description = `Education item: ${target.closest('.education-item').querySelector('h3').textContent}`;
         } else if (target.closest('.skill-category')) {
             description = `Skill category: ${target.closest('.skill-category').querySelector('h3').textContent}`;
-        } else if (target.closest('.gallery-item')) {
-            description = `Gallery item: ${target.closest('.gallery-item').querySelector('p').textContent}`;
         } else {
             const parentElement = target.closest('section');
             if (parentElement && parentElement.id) {

@@ -41,24 +41,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    if (document.getElementById('text-analysis')) {
-        const resultsContainer = document.getElementById('results-container');
-        
-        const addResponsiveTables = function() {
-            const tables = resultsContainer.querySelectorAll('table');
-            tables.forEach(table => {
-                if (!table.parentElement.classList.contains('table-responsive')) {
-                    const wrapper = document.createElement('div');
-                    wrapper.className = 'table-responsive';
-                    wrapper.style.cssText = 'width: 100%; overflow-x: auto;';
-                    table.parentNode.insertBefore(wrapper, table);
-                    wrapper.appendChild(table);
-                }
-            });
-        };
-        
-        document.getElementById('analyze-btn').addEventListener('click', function() {
-            setTimeout(addResponsiveTables, 100);
-        });
-    }
 });

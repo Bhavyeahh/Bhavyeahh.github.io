@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhavya's Personal Website</title>
+    <title>Bhavya Parihar | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,15 +11,15 @@
 <body>
     <header>
         <div class="container">
-            <h2>Bhavya's personal website</h2>
+
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="text-analysis.html">Text Analysis</a></li>
-                    <li><a href="assets/cv.pdf" class="cv-nav-button" download>Download CV</a></li>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,59 +28,117 @@
     <div class="page-content">
         <div class="container">
             <section id="about" class="section align-left">
-                <h2 class="slide-in">About Me</h2>
+                <h2 class="slide-in">About Myself</h2>
                 <div class="section-content">
-                    <div class="profile slide-in">
-                        <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
-                        <div class="about-text">
-                            <h3 class="slide-in">Hi, I'm Bhavya.</h3>
-                            <p class="slide-in">Welcome to my personal space on the web! I've always been fascinated by the ever-evolving world of technology and how it shapes the way we live, work, and play. Whether it's exploring the latest in software and hardware or diving into immersive gaming experiences, I love staying at the intersection of innovation and creativity. Here, you'll find my thoughts, projects, and everything else that fuels my curiosity.</p>
+                    <article class="resume-card slide-in">
+                        <h3>IIIT Hyderabad undergraduate with experience across technical and non-technical work.</h3>
+                        <p>I am Bhavya Parihar, an undergraduate student at IIIT Hyderabad with experience in event operations, team coordination, project management, research, and cross-functional collaboration. I am interested in marketing, brand-building, event strategy, content operations, and consumer technology ecosystems.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="education" class="section align-left">
+                <h2 class="slide-in">Education</h2>
+                <div class="section-content">
+                    <div class="resume-stack">
+                        <article class="resume-card slide-in">
+                            <h3>International Institute of Information Technology Hyderabad</h3>
+                            <p><strong>Bachelor of Technology in Computer Science</strong></p>
+                            <p><strong>Masters in Computational Natural Sciences</strong></p>
+                            <p>2024 - ongoing</p>
+                        </article>
+                        <article class="resume-card slide-in">
+                            <h3>Allen Coaching Institute</h3>
+                            <p>High School</p>
+                            <p>2022 - 2024</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section align-right">
+                <h2 class="slide-in-right">Leadership & Experience</h2>
+                <div class="section-content">
+                    <div class="resume-stack">
+                        <article class="resume-card slide-in-right">
+                            <h3>Coordinator, The Gaming Club IIIT Hyderabad</h3>
+                            <p>Leading a 50+ member team in event planning, execution, and operations across large-scale campus events and gaming initiatives.</p>
+                            <p>Managed logistics and coordination for events with 2,000+ participants while collaborating with cross-functional teams.</p>
+                            <p>Supported merchandise design, poster creation, crowd management, and on-ground event setup.</p>
+                        </article>
+                        <article class="resume-card slide-in-right">
+                            <h3>Logistics Head, Tech-Cultural Fest IIIT Hyderabad</h3>
+                            <p>Managed logistics and operational workflows for 30+ simultaneous events during institute technical and cultural festivals.</p>
+                        </article>
+                        <article class="resume-card slide-in-right">
+                            <h3>Undergraduate Researcher, Center for Computational Natural Sciences and Bioinformatics</h3>
+                            <p>Working on data-driven problem solving, workflow optimization, and project coordination in a research environment.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section align-left">
+                <h2 class="slide-in">Skills</h2>
+                <div class="section-content">
+                    <div class="skills-container">
+                        <div class="skill-category slide-in">
+                            <h3>Technical</h3>
+                            <ul>
+                                <li>Python, C/C++, JavaScript, SQL, HTML/CSS</li>
+                                <li>React.js, Next.js, Node.js, Express.js, FastAPI</li>
+                                <li>MongoDB, PostgreSQL, Firebase, Supabase</li>
+                                <li>Docker, Git, Linux, REST APIs</li>
+                                <li>Machine Learning, Full-Stack Development, OOP</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category slide-in">
+                            <h3>Leadership & Communication</h3>
+                            <ul>
+                                <li>Event Planning and Operations</li>
+                                <li>Team Leadership and Coordination</li>
+                                <li>Stakeholder Communication</li>
+                                <li>Cross-Functional Collaboration</li>
+                                <li>Project and Logistics Management</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category slide-in">
+                            <h3>Tools & Creative Work</h3>
+                            <ul>
+                                <li>Canva, Google Slides, PowerPoint</li>
+                                <li>Discord, DaVinci Resolve, Affinity</li>
+                                <li>Merchandise Design and Poster Creation</li>
+                                <li>Content Coordination and Social Media Support</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            
-            <section id="interests" class="section align-right">
-                <h2 class="slide-in-right">My Interests</h2>
-                <div class="interests-container slide-in-right" style="width: 100%; max-width: 100%; padding: 0; margin-right: 0;">
-                    <div class="interest-item">
-                        <div class="interest-image">
-                            <img src="assets/music.png" alt="Music Interest">
-                        </div>
-                        <div class="interest-content">
-                            <h3>Music</h3>
-                            <p>I enjoy listening to a variety of music genres including indie rock, classical, and electronic. Music helps me focus while coding and unwind after a long day.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="interest-item right">
-                        <div class="interest-image">
-                            <img src="assets/gaming.png" alt="Gaming Interest">
-                        </div>
-                        <div class="interest-content">
-                            <h3>Gaming</h3>
-                            <p>I'm passionate about video games, especially strategy and RPG titles. Gaming offers a creative escape and helps me develop problem-solving skills in engaging virtual environments.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="interest-item">
-                        <div class="interest-image">
-                            <img src="assets/nature.png" alt="Nature Interest">
-                        </div>
-                        <div class="interest-content">
-                            <h3>Watching Nature</h3>
-                            <p>I find peace in observing natural landscapes, from serene forests to majestic mountains. Nature watching helps me reconnect with the world around me and find inspiration for my creative endeavors.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="interest-item right">
-                        <div class="interest-image">
-                            <img src="assets/sleeping.png" alt="Sleep Interest">
-                        </div>
-                        <div class="interest-content">
-                            <h3>Sleeping</h3>
-                            <p>I've perfected the art of quality rest! I believe good sleep is foundational to productivity and creativity, and I prioritize maintaining a healthy sleep schedule.</p>
-                        </div>
+
+            <section id="projects" class="section align-left">
+                <h2 class="slide-in">Selected Projects</h2>
+                <div class="section-content">
+                    <div class="resume-stack">
+                        <article class="resume-card slide-in">
+                            <h3>Felicity Maintenance Service</h3>
+                            <p>A request-management platform built to streamline issue tracking and improve operational response efficiency.</p>
+                            <p>Stack: React.js, Node.js, Discord.</p>
+                        </article>
+                        <article class="resume-card slide-in">
+                            <h3>Face Recognition Attendance System</h3>
+                            <p>A full-stack attendance platform with streamlined user workflows and automated verification features.</p>
+                            <p>Stack: FastAPI, Next.js.</p>
+                        </article>
+                        <article class="resume-card slide-in">
+                            <h3>Institute Management System (IMS)</h3>
+                            <p>Developed an Android application using MVVM architecture to automate 15+ academic workflows. Integrated Firebase for real-time NoSQL database synchronization with low-latency updates under 150ms.</p>
+                            <p>Stack: Kotlin, Jetpack Compose, Firebase.</p>
+                        </article>
+                        <article class="resume-card slide-in">
+                            <h3>Quantum Algorithm Implementations</h3>
+                            <p>Implemented and benchmarked quantum search algorithms on IBM quantum hardware demonstrating quadratic speedup characteristics. Simulated one-dimensional quantum walks to analyze ballistic diffusion behavior compared to classical random walks.</p>
+                            <p>Stack: Python, Qiskit, Quantum Computing.</p>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -90,33 +148,25 @@
                 <div class="section-content">
                     <div class="contact-container slide-in">
                         <div class="contact-info">
-                            <h3>Let's Connect!</h3>
-                            <p>Feel free to reach out to me through any of these platforms:</p>
+                            <h3>Let's Connect</h3>
+                            <p>Open to opportunities in technology, operations, research, and product-facing roles.</p>
                             
                             <div class="contact-links">
-                                <div class="contact-item">
-                                    <i class="fab fa-instagram"></i>
-                                    <a href="https://www.instagram.com/bhavya_1_2_3.4" target="_blank">@bhavya_parihar</a>
-                                </div>
-                                
-                                <div class="contact-item">
-                                    <i class="fab fa-github"></i>
-                                    <a href="https://github.com/bhavyeahh" target="_blank">bhavyaparihar</a>
-                                </div>
-                                
-                                <div class="contact-item">
+                                <a class="contact-button" href="mailto:bhavyaparihar132@gmail.com">
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:bhavyaparihar132@gmail.com">bhavyaparihar132@gmail.com</a>
-                                </div>
-                                
-                                <div class="contact-item">
-                                    <i class="fas fa-phone"></i>
-                                    <a href="tel:+916367411249">+91 63674 11249</a>
-                                </div>
+                                    <span>Email</span>
+                                </a>
+
+                                <a class="contact-button" href="https://github.com/bhavyeahh" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+
+                                <a class="contact-button" href="https://www.linkedin.com/in/bhavya-parihar" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </a>
                             </div>
-                        </div>
-                        <div class="contact-image">
-                            <img src="assets/contact.png" alt="Contact Me" class="contact-img">
                         </div>
                     </div>
                 </div>
@@ -124,20 +174,8 @@
         </div>
     </div>
 
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <i id="theme-icon" class="fas fa-moon"></i>
-    </button>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Bhavya. All rights reserved.</p>
-        </div>
-    </footer>
-    
     <script src="js/tracking.js"></script>
     <script src="js/scroll-animations.js"></script>
-    <script src="js/theme-switcher.js"></script>
     <script src="js/mobile-nav.js"></script>
-    <script src="js/audio-effects.js"></script>
 </body>
 </html>

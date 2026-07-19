@@ -18,16 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.classList.remove('appear');
             }
         });
-
-        const interestItems = document.querySelectorAll('.interest-item');
-        interestItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                item.classList.add('appear');
-            } else {
-                item.classList.remove('appear');
-            }
-        });
     }
 
     handleScrollAnimation();
