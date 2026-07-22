@@ -1058,6 +1058,25 @@ nav ul li a.active {
     color: var(--primary-color);
 }
 
+.about-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.profile-image-wrapper {
+    flex: 0 0 280px;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    object-fit: cover;
+}
+
 .contact-image {
     flex: 0 0 300px;
 }
@@ -1072,6 +1091,21 @@ nav ul li a.active {
 
 /* Mobile responsiveness for contact section */
 @media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .profile-image-wrapper {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .profile-image {
+        max-width: 220px;
+    }
+    
     .contact-container {
         flex-direction: column-reverse;
         text-align: center;
